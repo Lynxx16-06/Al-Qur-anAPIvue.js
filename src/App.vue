@@ -20,8 +20,8 @@
     >
       <h2 class="font-bold text-xl md:text-2xl">Qur'anLynxx</h2>
       <div class="flex items-center space-x-10">
-        <a href="/" class="hover:text-gray-300  hidden">{{ $t('menu1')}}</a>
-        <a href="/doa" class="hover:text-gray-300  hidden">{{ $t('menu2')}}</a>
+        <a href="/" class="hover:text-gray-300 md:flex hidden">{{ $t('menu1')}}</a>
+        <a href="/doa" class="hover:text-gray-300 md:flex hidden">{{ $t('menu2')}}</a>
         <div class="items-center bg-gray-800 px-4 py-2 rounded-full border w-full hidden lg:flex border-gray-600">
           <input
             class="bg-transparent outline-none text-white placeholder-gray-400 sm:w-40"
