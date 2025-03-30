@@ -1,0 +1,52 @@
+{
+    "menu1": "主页",
+    "menu2": "祈祷",
+    "menu3": "设置",
+
+    "ucapan": "你好，欢迎",
+    "ucapan2": "开斋节快乐",
+    "ucapan3": "1446 年伊斯兰历",
+
+    "text1": "有什么需要咨询的吗？",
+    "text2": "姓名",
+    "text3": "选择报告",
+    "text4": "您的电子邮件",
+    "text5": "非必填项",
+
+    "select": {
+        "saran": "建议",
+        "kritik": "批评",
+        "pertanyaan": "问题"
+    },
+
+    "placeholder": {
+        "nama": "请输入您的姓名",
+        "laporan": "最多 255 字",
+        "email": "请输入您的电子邮件"
+    },
+
+    "kirim": "发送",
+
+    "cari": "搜索章节",
+    "cari2": "搜索祈祷",
+
+    "simpan": "已保存",
+    "note": "尚未保存任何内容",
+
+    "sapa": "你好，我是 Ilham Yuniar，Qur'anLynxx 的创始人",
+    "sapa2": "如果发现 bug 或错误，可以咨询 Qur'anLynxx 客服。",
+    "sapa3": "同意并理解",
+    "sapa4": "好的，我明白了",
+
+"alter": {
+    "alter1" : "抱歉，设置暂时不可用",
+    "alter2" : "警告",
+    "alter3" : "请先勾选！并先启用",
+    "alter4" : "经文已保存到书签",
+    "alter5" : "请选择一位卡里进行收听",
+    "alter6" : "成功！",
+    "alter7" : "请先启用音频"
+}
+
+
+}

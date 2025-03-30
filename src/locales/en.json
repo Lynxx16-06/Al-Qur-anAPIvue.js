@@ -1,0 +1,54 @@
+{
+    "menu1": "Home",
+    "menu2": "Prayer",
+    "menu3": "Settings",
+
+    "ucapan": "Hello, Welcome",
+    "ucapan2": "Happy Eid al-Fitr",
+    "ucapan3": "1446 Hijri",
+
+    "text1": "Any questions?",
+    "text2": "Name",
+    "text3": "Select Report",
+    "text4": "Your Email",
+    "text5": "Not Required",
+
+    "select": {
+        "saran": "Suggestion",
+        "kritik": "Criticism",
+        "pertanyaan": "Question"
+    },
+
+    "placeholder": {
+        "nama": "Enter your name",
+        "laporan": "Max 255 characters",
+        "email": "Enter your email"
+    },
+
+    "kirim" : "Send",
+    
+    "cari": "Search Letter",
+    "cari2": "Search Prayer",
+
+    "simpan" : "Saved",
+    "note" : "Nothing saved yet",
+
+    "sapa": "Hello, I am Ilham Yuniar, the creator of Qur'anLynxx.",
+    "sapa2": "If there are any bugs or errors, you can ask Qur'anLynxx Customer Support.",
+    "sapa3": "Agree to understand.",
+    "sapa4": "Okay, I understand.",
+
+"alter": {
+    "alter1" : "Sorry, the setting is temporarily unavailable",
+    "alter2" : "Warning",
+    "alter3" : "Please check first! & Activate it first",
+    "alter4" : "The verse has been saved to bookmarks",
+    "alter5" : "Please select a Qari to listen",
+    "alter6" : "Success!",
+    "alter7" : "Please activate the audio first"
+}
+
+
+
+
+}

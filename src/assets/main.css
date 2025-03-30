@@ -1,0 +1,67 @@
+@import './base.css';
+
+
+@theme {
+  --color-primary: #171717;
+  --color-secondary: #262626;
+  --p-toast-border-radius: 10px;
+}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+  
+  .dark {
+    background-color: white;
+    color: white;
+  }
+  
+  .dark .bg-gray-10 {
+    background-color: #262626;
+  }
+  
+  .dark .text-gray {
+    color: #e5e7eb;
+  }
+  .dark .text-black-100 {
+    color: black;
+  }
+  
+  .dark .bg-border-100 {
+    background-color: #171717;
+  }
+
+  .dark .bg-border {
+    background-color: white;
+  }
+  
+  .dark .bg-blue {
+    background-color: blue;
+  }
+
+  /* Tambahkan di file styles.css atau di dalam style di Vue */
+
+.p-toast-message {
+  @apply border-blue-300 px-10 py-3;
+}
+
+.p-toast-message-icon {
+  @apply pt-1 pr-3 -pl-2 text-blue-400
+}
+
+.p-toast-summary {
+  @apply text-blue-400
+}
+
+.p-toast-message-content {
+  @apply border-none;
+}
+
+.p-toast-close-icon {
+  @apply text-blue-400 pl-5 pt-3;
+}
+
+
+
+  /* @media screen and (min-width: 1024px) and (max-width: 1366px) {
+    .ipad {
+      width: 100vh;
+    }
+  } */

@@ -1,0 +1,54 @@
+{
+    "menu1" : "Beranda",
+    "menu2" : "Doa",
+    "menu3" : "Setting",
+
+    "ucapan" : "Hallo Selamat Datang",
+    "ucapan2" : "Selamat Hari Raya Idul Fitri",
+    "ucapan3" : "1446 Hijriah",
+
+    "text1" : "Ada yang perlu ditanyakan",
+    "text2" : "Nama",
+    "text3" : "Pilih Laporan",
+    "text4" : "Email Anda",
+    "text5" : "Tidak Wajib",
+
+    "select": {
+        "saran" : "Saran",
+        "kritik" : "Kritik",
+        "pertanyaan" : "Pertanyaan"
+    },
+
+    "placeholder": {
+        "nama" : "Masukkan Nama Anda",
+        "laporan" : "Max 255",
+        "email" : "Masukkan Email Anda"
+    },
+
+    "kirim" : "Kirim",
+
+
+    "cari" : "Cari Surat",
+    "cari2" : "Cari Doa",
+
+    "simpan" : "Disimpan",
+    "note" : "Belum ada yang disimpan",
+
+    "sapa": "Hallo, saya Ilham Yuniar Pembuat Qur'anLynxx",
+    "sapa2": "Jika ada bug atau error, bisa ditanyakan di CS Qur'anLynxx.",
+    "sapa3": "Setuju untuk dipahami",
+    "sapa4": "Oke, Saya Paham",
+
+    "alter": {
+        "alter1" : "Mohon Maaf Setting Sementara Belum Tersedia",
+        "alter2" : "Peringatan",
+        "alter3" : "Harap centang terlebih dahulu! & Activekan Dulu",
+        "alter4" : "Ayat telah disimpan ke bookmark",
+        "alter5" : "Silakan pilih qari untuk mendengarkan",
+        "alter6" : "Berhasil!",
+        "alter7" : "Mohon Activekan Dulu Audionya"
+    }
+
+}
+
+
