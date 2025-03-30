@@ -231,7 +231,7 @@
             </div>
             <div v-if="IsSearch" class="relative px-5 py-2 kedip">
                   <input
-                    class="bg-transparent outline-none border p-1 rounded-2xl pl-2 text-white placeholder-gray-400 w-full sm:w-40"
+                    class="bg-transparent outline-none border p-1 rounded-2xl pl-2 text-black text-gray placeholder-gray-400 w-full sm:w-40"
                     type="text"
                     maxlength="15"
                     :placeholder="$t('cari')"
