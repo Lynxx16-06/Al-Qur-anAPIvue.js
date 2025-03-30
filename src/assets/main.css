@@ -4,7 +4,6 @@
 @theme {
   --color-primary: #171717;
   --color-secondary: #262626;
-  --p-toast-border-radius: 10px;
 }
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
   
@@ -36,14 +35,12 @@
     background-color: blue;
   }
 
-  /* Tambahkan di file styles.css atau di dalam style di Vue */
-
 .p-toast-message {
   @apply border-blue-300 px-10 py-3;
 }
 
 .p-toast-message-icon {
-  @apply pt-1 pr-3 -pl-2 text-blue-400
+  @apply pt-1 pr-3 text-blue-400
 }
 
 .p-toast-summary {
@@ -57,11 +54,3 @@
 .p-toast-close-icon {
   @apply text-blue-400 pl-5 pt-3;
 }
-
-
-
-  /* @media screen and (min-width: 1024px) and (max-width: 1366px) {
-    .ipad {
-      width: 100vh;
-    }
-  } */

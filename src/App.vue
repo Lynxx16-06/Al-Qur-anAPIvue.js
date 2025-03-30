@@ -396,7 +396,6 @@
 </template>
 
 <script>
-// import { useToast } from 'primevue/usetoast';
 import Toast from "primevue/toast";
 import emailjs from "emailjs-com";
 import Swal from 'sweetalert2';
@@ -424,7 +423,7 @@ export default {
       nama: "",
       laporan: "",
       saran: "",
-      email: "", // Menyimpan input email pengguna
+      email: "",
       kirimViaEmail: false,
       isDark: false,
       searchQuery: '',
@@ -625,4 +624,3 @@ export default {
   },
 };
 </script>
-
