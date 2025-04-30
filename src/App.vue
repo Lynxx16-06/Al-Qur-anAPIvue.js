@@ -22,6 +22,63 @@
       <div class="flex items-center space-x-10">
         <a href="/" class="hover:text-gray-300 md:flex hidden">{{ $t('menu1')}}</a>
         <a href="/doa" class="hover:text-gray-300 md:flex hidden">{{ $t('menu2')}}</a>
+        <div class="hidden md:flex">
+          <div @click="ButtonDzikir"><svg class="size-6 cursor-pointer " alt="Dzkir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11 6V8C7.68629 8 5 10.6863 5 14C5 17.3137 7.68629 20 11 20C14.2384 20 16.8776 17.4344 16.9959 14.2249L17 14H19C19 18.4183 15.4183 22 11 22C6.58172 22 3 18.4183 3 14C3 9.66509 6.58 6 11 6ZM21 2V4L15.6726 10H21V12H13V10L18.3256 4H13V2H21Z"></path></svg></div>
+          <div v-if="isDzikir" class="absolute top-20 bg-border-100 min-w-md h-100 rounded-xl">
+            <div class="flex justify-between px-5 py-4 items-center">
+              <h1 class="font-bold text-2xl">Mari Dzikir Yukk</h1>
+              <div @click="ButtonDzikir" class=""><svg class="size-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg></div>
+            </div>
+            <!-- <div class="flex justify-around ">
+            <div v-for="(item, index) in OpenDzikir" :key="index" class="flex border px-5 rounded-xl" @click="activeButton(index)">
+                <h1>{{ item.Jumlah }}</h1>
+              </div>
+            </div> -->
+            <div class="flex justify-around">
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton(index)">
+                <h1 >10</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton1(index)">
+                <h1>33</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton2(index)">
+                <h1>100</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton3(index)">
+                <h1>1000</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton4(index)">
+                <h1>10000</h1>
+              </div>
+            </div>
+            <div v-if="open10" class="flex justify-center mt-10 ">
+              <h1 @click="ButtonPlus" class="text-9xl  flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus }}</h1>
+            </div>
+            <div v-if="open33" class="flex justify-center mt-10 ">
+              <h1 @click="ButtonPlus1" class="text-9xl  flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus33 }}</h1>
+            </div>
+            <div v-if="open100" class="flex justify-center mt-10 ">
+              <h1 @click="ButtonPlus2" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus100 }}</h1>
+            </div>
+            <div v-if="open1000" class="flex justify-center mt-10 ">
+              <h1 @click="ButtonPlus3" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus1000 }}</h1>
+            </div>
+            <div v-if="open10000" class="flex justify-center mt-10 ">
+              <h1 @click="ButtonPlus4" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus10000 }}</h1>
+            </div>
+            <div class="">
+             <audio ref="audioDzikir"  controls class="hidden">
+              <source :src="audioDzikir1" type="audio/mpeg">
+            </audio>
+             <audio ref="audioStop"  controls class="hidden">
+              <source :src="audioStop" type="audio/mpeg">
+            </audio>
+             <div class="flex justify-center items-center my-5 m-auto">
+              <button @click="ButtonRiset"><svg class="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C9.25144 4 6.82508 5.38626 5.38443 7.5H8V9.5H2V3.5H4V5.99936C5.82381 3.57166 8.72764 2 12 2C17.5228 2 22 6.47715 22 12H20C20 7.58172 16.4183 4 12 4ZM4 12C4 16.4183 7.58172 20 12 20C14.7486 20 17.1749 18.6137 18.6156 16.5H16V14.5H22V20.5H20V18.0006C18.1762 20.4283 15.2724 22 12 22C6.47715 22 2 17.5228 2 12H4Z"></path></svg></button>
+             </div>
+            </div>
+         </div>
+        </div>
         <div class="items-center bg-gray-800 px-4 py-2 rounded-full border w-full hidden lg:flex border-gray-600">
           <input
             class="bg-transparent outline-none text-white placeholder-gray-400 sm:w-40"
@@ -43,6 +100,11 @@
           </svg>
         </div>
       </div>
+
+
+      <!-- POP UP DZIKIR -->
+
+
 
       <!-- Peringatan -->
       <div v-if="Peringatan" class="fixed top-50 left-0 p-5 xl:left-0  w-full" data-aos="zoom-in" data-aos-duration="800">
@@ -151,6 +213,9 @@
               <div class="border p-2 rounded-full" @click="toggleOpenCS">
                 <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.9381 8H21C22.1046 8 23 8.89543 23 10V14C23 15.1046 22.1046 16 21 16H19.9381C19.446 19.9463 16.0796 23 12 23V21C15.3137 21 18 18.3137 18 15V9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9V16H3C1.89543 16 1 15.1046 1 14V10C1 8.89543 1.89543 8 3 8H4.06189C4.55399 4.05369 7.92038 1 12 1C16.0796 1 19.446 4.05369 19.9381 8ZM3 10V14H4V10H3ZM20 10V14H21V10H20ZM7.75944 15.7849L8.81958 14.0887C9.74161 14.6662 10.8318 15 12 15C13.1682 15 14.2584 14.6662 15.1804 14.0887L16.2406 15.7849C15.0112 16.5549 13.5576 17 12 17C10.4424 17 8.98882 16.5549 7.75944 15.7849Z"></path></svg>
               </div>
+              <div class="border p-2 rounded-full" @click="toggleOpenDzikir">
+                <svg class="size-5 cursor-pointer " alt="Dzkir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11 6V8C7.68629 8 5 10.6863 5 14C5 17.3137 7.68629 20 11 20C14.2384 20 16.8776 17.4344 16.9959 14.2249L17 14H19C19 18.4183 15.4183 22 11 22C6.58172 22 3 18.4183 3 14C3 9.66509 6.58 6 11 6ZM21 2V4L15.6726 10H21V12H13V10L18.3256 4H13V2H21Z"></path></svg>
+              </div>
               </div>
               <div>
                 <button class="md:hidden" @click="toggleNavbar">
@@ -197,8 +262,6 @@
                 <svg @click="openSearch" class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg>
 
                 <!-- Search -->
-                
-
                 <div class="relative inline-block text-left">
                   <!-- Button untuk membuka dropdown -->
                   <button @click="toggleDropdown" class="flex items-center gap-2 p-2 border rounded-lg">
@@ -290,6 +353,84 @@
                 </form>
               </div>
             </div>
+
+
+            <!-- OpenDzikirMobile -->
+            <div v-if="openDzikirMobile" class="fixed -mt-75 w-full z-50">
+            <div class="bg-border-100 h-screen rounded-xl">
+            <div class="flex justify-between px-5 py-4 items-center">
+              <h1 class="font-bold text-2xl">Mari Dzikir Yukk</h1>
+              <div @click="toggleOpenDzikir" class=""><svg class="size-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg></div>
+            </div>
+            <!-- <div class="flex justify-around ">
+            <div v-for="(item, index) in OpenDzikir" :key="index" class="flex border px-5 rounded-xl" @click="activeButton(index)">
+                <h1>{{ item.Jumlah }}</h1>
+              </div>
+            </div> -->
+            <div class="flex justify-around">
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton(index)">
+                <h1 >10</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton1(index)">
+                <h1>33</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton2(index)">
+                <h1>100</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton3(index)">
+                <h1>1000</h1>
+              </div>
+              <div class="border px-5 rounded-xl cursor-pointer" @click="activeButton4(index)">
+                <h1>10000</h1>
+              </div>
+            </div>
+            <main class="">
+              <div v-if="open10" class="flex justify-center mt-10">
+                <h1 @click="ButtonPlus" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus }}</h1>
+              </div>
+              <div v-if="open33" class="flex justify-center mt-10 ">
+                <h1 @click="ButtonPlus1" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus33 }}</h1>
+              </div>
+              <div v-if="open100" class="flex justify-center mt-10 ">
+                <h1 @click="ButtonPlus2" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus100 }}</h1>
+              </div>
+              <div v-if="open1000" class="flex justify-center mt-10 ">
+                <h1 @click="ButtonPlus3" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus1000 }}</h1>
+              </div>
+              <div v-if="open10000" class="flex justify-center mt-10 ">
+                <h1 @click="ButtonPlus4" class="text-9xl flex justify-center rounded-full w-40 h-40 cursor-pointer">{{ plus10000 }}</h1>
+              </div>
+            </main>
+            <div class="">
+             <audio ref="audioDzikir"  controls class="hidden">
+              <source :src="audioDzikir1" type="audio/mpeg">
+            </audio>
+             <audio ref="audioStop"  controls class="hidden">
+              <source :src="audioStop" type="audio/mpeg">
+            </audio>
+             <div class="flex justify-around items-center my-5">
+              <button @click="ButtonRiset"><svg class="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C9.25144 4 6.82508 5.38626 5.38443 7.5H8V9.5H2V3.5H4V5.99936C5.82381 3.57166 8.72764 2 12 2C17.5228 2 22 6.47715 22 12H20C20 7.58172 16.4183 4 12 4ZM4 12C4 16.4183 7.58172 20 12 20C14.7486 20 17.1749 18.6137 18.6156 16.5H16V14.5H22V20.5H20V18.0006C18.1762 20.4283 15.2724 22 12 22C6.47715 22 2 17.5228 2 12H4Z"></path></svg></button>
+              <button @click="SaveDzikir" class="hover:px-4 hover:py-4 bg-green-400 px-4 py-2 rounded-xl">Save</button>
+             </div>
+             <div class="px-5 flex flex-col">
+              <label for="" class="py-5">Nama Dzikir:</label>
+              <input type="text" v-model="nameDzikir1" class="border rounded-2xl pl-5 mb-5" maxlength="100" placeholder="Nama Dzikirnya">
+             </div>
+             <div class="flex">
+               <div class="block gap-5 text-xl pl-5">
+                 <div v-for="(save, index) in saveDzikir" :key="index" class="flex">
+                    <!-- <h1>{{ nameDzikir1 }}</h1> -->
+                   <h1>{{ save }}</h1>
+                 </div>
+               </div>
+             </div>
+             <div>
+              <button @click="DeleteDzikir(index)">Hapus</button>
+             </div>
+            </div>
+         </div>
+            </div>
+
             <!-- Dark Mode Mobile -->
             
           </nav>
@@ -400,6 +541,8 @@ import Toast from "primevue/toast";
 import emailjs from "emailjs-com";
 import Swal from 'sweetalert2';
 import audiolink from './assets/takbir/takbiran1new.mp3'
+import audioDzikir2 from './assets/audio/audioDzikir.mp3'
+import audioStop1 from './assets/audio/stop.mp3'
 export default {
   components: { Toast },
   data() {
@@ -407,7 +550,12 @@ export default {
       navbarOpen: false,
       audioSrc: audiolink,
       sidebarOpen: false,
+      audioDzikir1: audioDzikir2,
+      audioStop: audioStop1,
+      isDzikir: null,
       active: null,
+      activeIndex: null,
+      activeIndex1: null,
       isPlaying: false,
       isMuted: false,
       active1: null,
@@ -415,9 +563,26 @@ export default {
       isPlaying: false,
       Peringatan: true,
       muted: false,
+      openDzikirMobile: false,
+      plus: 0,
+      plus33: 0,
+      plus100: 0,
+      plus1000: 0,
+      plus10000: 0,
+      tambah: 1,
+      riset: 0,
+      open10: false,
+      open33: false,
+      open100: false,
+      open1000: false,
+      open10000: false,
+      isAudio: false,
       isPlaying: false,
       toggle: false,
       isOpen: false,
+      nameDzikir: false,
+      nameDzikir1: '',
+      saveDzikir: [],
       IsCS: false,
       IsSearch: false,
       nama: "",
@@ -427,6 +592,13 @@ export default {
       kirimViaEmail: false,
       isDark: false,
       searchQuery: '',
+      OpenDzikir: [
+        {Jumlah: 10, },
+        {Jumlah: 33, },
+        {Jumlah: 100, },
+        {Jumlah: 1000, },
+        {Jumlah: 10000, }
+      ]
     };
   },
   created() {
@@ -475,6 +647,114 @@ export default {
 
   },
   methods: {
+    SaveDzikir() {
+      if(this.nameDzikir1.trim() !== '') {
+        this.saveDzikir.push(this.nameDzikir1, this.plus, this.nameDzikir1, this.plus33)
+        this.nameDzikir1 = ''
+        this.plus = 0
+        this.plus33 = 0
+      } else {
+        alert('Mohon Isi Nama Dzikir Dulu, Sebelum Menyimpan')
+      }
+    },
+    DeleteDzikir(index) {
+      this.saveDzikir.pop()
+    },
+    ButtonRiset() {
+      this.plus = this.riset
+      this.plus33 = this.riset
+      this.plus100 = this.riset
+      this.plus1000 = this.riset
+      this.plus10000 = this.riset
+    },
+    ButtonPlus() {
+      if (this.plus ++ ) {
+        this.isAudio = !this.isAudio
+        if (this.isAudio) {
+          this.$refs.audioDzikir.play()
+        } else {
+          this.$refs.audioDzikir.play()
+        }
+      } else {
+        
+      }
+
+      if (this.plus === 11) {
+        this.plus --
+        this.$refs.audioDzikir.pause()
+        this.$refs.audioStop.play() 
+      }
+    },
+    ButtonPlus1() {
+      if (this.plus33 ++) {
+        this.isAudio = !this.isAudio
+        if (this.isAudio) {
+          this.$refs.audioDzikir.play()
+        } else {
+          this.$refs.audioDzikir.play()
+        }
+      }
+
+      if (this.plus33 === 34) {
+        this.plus33 --
+        this.$refs.audioDzikir.pause()
+        this.$refs.audioStop.play() 
+      }
+    },
+    ButtonPlus2() {
+      if (this.plus100 ++) {
+        this.isAudio = !this.isAudio
+        if (this.isAudio) {
+          this.$refs.audioDzikir.play()
+        } else {
+          this.$refs.audioDzikir.play()
+        }
+      }
+
+      if (this.plus100 === 101) {
+        this.plus100 --
+        this.$refs.audioDzikir.pause()
+        this.$refs.audioStop.play() 
+      }
+    },
+    ButtonPlus3() {
+      if (this.plus1000 ++) {
+        this.isAudio = !this.isAudio
+        if (this.isAudio) {
+          this.$refs.audioDzikir.play()
+        } else {
+          this.$refs.audioDzikir.play()
+        }
+      }
+
+      if (this.plus1000 === 1001) {
+        this.plus1000 --
+        this.$refs.audioDzikir.pause()
+        this.$refs.audioStop.play() 
+      }
+    },
+    ButtonPlus4() {
+      if (this.plus10000 ++) {
+        this.isAudio = !this.isAudio
+        if (this.isAudio) {
+          this.$refs.audioDzikir.play()
+        } else {
+          this.$refs.audioDzikir.play()
+        }
+      }
+
+      if (this.plus10000 === 10001) {
+        this.plus10000 --
+        this.$refs.audioDzikir.pause()
+        this.$refs.audioStop.play() 
+      }
+    },
+    toggleOpenDzikir() {
+      this.openDzikirMobile = !this.openDzikirMobile
+    },
+    ButtonDzikir() {
+      this.isDzikir = !this.isDzikir;
+    },
     setujuiPeringatan() {
       if (this.toggle && this.toggle1) {
         localStorage.setItem("peringatan_disetujui", "true");
@@ -538,6 +818,49 @@ export default {
     },
     activeNabar1(index) {
       this.active1 === index ? this.active1 = null : this.active1 = index;
+    },
+    activeButton(index) {
+      this.activeIndex === index ? this.activeIndex = null : this.activeIndex = index;
+      this.open10 = !this.open10
+      this.open33 = false
+      this.open100 = false
+      this.open1000 = false
+      this.open10000 = false
+      if(this.activeIndex1 === true) {
+        this.open10 = false
+      }
+    },
+    activeButton1(index2) {
+      this.activeIndex1 === index2 ? this.activeIndex1 = null : this.activeIndex1 = index2;
+      this.open33 = !this.open33
+      this.open10 = false
+      this.open100 = false
+      this.open1000 = false
+      this.open10000 = false
+    },
+    activeButton2(index2) {
+      this.activeIndex1 === index2 ? this.activeIndex1 = null : this.activeIndex1 = index2;
+      this.open100 = !this.open100
+      this.open10 = false
+      this.open33 = false
+      this.open1000 = false
+      this.open10000 = false
+    },
+    activeButton3(index2) {
+      this.activeIndex1 === index2 ? this.activeIndex1 = null : this.activeIndex1 = index2;
+      this.open1000 = !this.open1000
+      this.open10 = false
+      this.open33 = false
+      this.open100 = false
+      this.open10000 = false
+    },
+    activeButton4(index2) {
+      this.activeIndex1 === index2 ? this.activeIndex1 = null : this.activeIndex1 = index2;
+      this.open10000 = !this.open10000
+      this.open10 = false
+      this.open33 = false
+      this.open100 = false
+      this.open1000 = false
     },
     toggleKirimEmail() {
       this.kirimViaEmail = !this.kirimViaEmail;

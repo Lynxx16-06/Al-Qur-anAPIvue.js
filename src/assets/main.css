@@ -1,5 +1,9 @@
 @import './base.css';
 
+body {
+  
+  font-family: "Work Sans", sans-serif;
+}
 
 @theme {
   --color-primary: #171717;
